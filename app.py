@@ -2,14 +2,13 @@
 
 # Benutzer: cumulus im Home-Verzeichnis
 # source testumgebung/bin/activate
+# Dafür sollte dann leaf11 vorbereitet sein (API)
 
 from flask import Flask
 from flask import render_template
 
 import requests
 import urllib3
-
-SWITCHE = ["192.168.200.2","192.168.200.3"]
 
 # nicht schoen aber heute Nachmittag zweckmaessig
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
