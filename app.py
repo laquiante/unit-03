@@ -18,7 +18,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def start():
-    ergebnis = requests.get('https://192.168.200.2:8765/cue_v1/bridge/domain/alq/mac-table', auth=('cumulus','CumulusLinux!'), verify=False)
-    return render_template("home.html", ergebnis=os_liste)
+    ergebnis = requests.get('https://192.168.200.2:8765/cue_v1/system', auth=('cumulus','CumulusLinux!'), verify=False)
+    for key in ergebnis.json():
+      if key == "build":
+        NOS = ergebnis.json()[key]
+    return NOS
 
 app.run(host='::',debug=True)
